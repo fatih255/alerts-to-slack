@@ -1,0 +1,12 @@
+{
+  "Type": "Notification",
+  "MessageId": "7c1f1e1a-0000-4000-8000-000000000101",
+  "TopicArn": "arn:aws:sns:eu-central-1:123456789012:alerts-to-slack",
+  "Subject": "ALARM: \"checkout-api-5xx-rate\" in EU (Frankfurt)",
+  "Message": "{\"AlarmName\":\"checkout-api-5xx-rate\",\"AlarmDescription\":\"More than 5% of checkout-api requests returned 5xx for 3 minutes.\",\"AWSAccountId\":\"123456789012\",\"AlarmConfigurationUpdatedTimestamp\":\"2026-11-02T08:41:17.512+0000\",\"NewStateValue\":\"ALARM\",\"NewStateReason\":\"Threshold Crossed: 3 out of the last 3 datapoints [41.0 (10/11/26 09:13:00), 37.0 (10/11/26 09:12:00), 29.0 (10/11/26 09:11:00)] were greater than the threshold (25.0) (minimum 3 datapoints for OK -> ALARM transition).\",\"StateChangeTime\":\"2026-11-10T09:14:03.120+0000\",\"Region\":\"EU (Frankfurt)\",\"AlarmArn\":\"arn:aws:cloudwatch:eu-central-1:123456789012:alarm:checkout-api-5xx-rate\",\"OldStateValue\":\"OK\",\"OKActions\":[\"arn:aws:sns:eu-central-1:123456789012:alerts-to-slack\"],\"AlarmActions\":[\"arn:aws:sns:eu-central-1:123456789012:alerts-to-slack\"],\"InsufficientDataActions\":[],\"Trigger\":{\"MetricName\":\"Errors\",\"Namespace\":\"AWS/Lambda\",\"StatisticType\":\"Statistic\",\"Statistic\":\"SUM\",\"Unit\":null,\"Dimensions\":[{\"value\":\"checkout-api\",\"name\":\"FunctionName\"}],\"Period\":60,\"EvaluationPeriods\":3,\"DatapointsToAlarm\":3,\"ComparisonOperator\":\"GreaterThanThreshold\",\"Threshold\":25,\"TreatMissingData\":\"missing\",\"EvaluateLowSampleCountPercentile\":\"\"}}",
+  "Timestamp": "2026-11-10T09:14:03.181Z",
+  "SignatureVersion": "1",
+  "Signature": "EXAMPLE-SIGNATURE-NOT-VERIFIED==",
+  "SigningCertURL": "https://sns.eu-central-1.amazonaws.com/SimpleNotificationService-0000000000000000000000.pem",
+  "UnsubscribeURL": "https://sns.eu-central-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:eu-central-1:123456789012:alerts-to-slack:00000000-0000-4000-8000-000000000001"
+}

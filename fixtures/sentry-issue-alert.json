@@ -1,0 +1,75 @@
+{
+  "action": "triggered",
+  "installation": {
+    "uuid": "0a1b2c3d-0000-4000-8000-00000000a001"
+  },
+  "data": {
+    "event": {
+      "event_id": "5f2b8c1d9e7a4b3c8d6e0f1a2b3c4d5e",
+      "project": 4500000000000001,
+      "release": "web-app@2.14.0",
+      "dist": null,
+      "platform": "javascript",
+      "message": "",
+      "datetime": "2026-11-10T09:20:41.512000Z",
+      "timestamp": 1794302441.512,
+      "level": "error",
+      "logger": "",
+      "culprit": "submitCoupon(app/checkout/coupon)",
+      "title": "TypeError: Cannot read properties of undefined (reading 'discount')",
+      "location": "app/checkout/coupon.ts",
+      "environment": "production",
+      "tags": [
+        [
+          "browser",
+          "Chrome 142"
+        ],
+        [
+          "environment",
+          "production"
+        ],
+        [
+          "level",
+          "error"
+        ],
+        [
+          "release",
+          "web-app@2.14.0"
+        ],
+        [
+          "url",
+          "https://shop.example.com/checkout"
+        ]
+      ],
+      "metadata": {
+        "type": "TypeError",
+        "value": "Cannot read properties of undefined (reading 'discount')",
+        "filename": "app/checkout/coupon.ts",
+        "function": "submitCoupon"
+      },
+      "fingerprint": [
+        "{{ default }}"
+      ],
+      "issue_id": "6012345678",
+      "issue_url": "https://sentry.io/api/0/issues/6012345678/",
+      "url": "https://sentry.io/api/0/projects/example-org/web-app/events/5f2b8c1d9e7a4b3c8d6e0f1a2b3c4d5e/",
+      "web_url": "https://sentry.io/organizations/example-org/issues/6012345678/events/5f2b8c1d9e7a4b3c8d6e0f1a2b3c4d5e/"
+    },
+    "triggered_rule": "New error in production checkout",
+    "issue_alert": {
+      "title": "New error in production checkout",
+      "settings": [
+        {
+          "name": "channel",
+          "value": "#alerts"
+        }
+      ],
+      "sentry_app_id": 1001
+    }
+  },
+  "actor": {
+    "type": "application",
+    "id": "sentry",
+    "name": "Sentry"
+  }
+}
