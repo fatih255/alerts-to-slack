@@ -1,0 +1,282 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Block Kit messages > grouped repeat 1`] = `
+{
+  "blocks": [
+    {
+      "text": {
+        "text": "Still firing: TypeError: Cannot read properties of undefined (reading 'discount')",
+        "type": "plain_text",
+      },
+      "type": "header",
+    },
+    {
+      "fields": [
+        {
+          "text": "*Severity*
+Error",
+          "type": "mrkdwn",
+        },
+        {
+          "text": "*Service*
+web-app",
+          "type": "mrkdwn",
+        },
+        {
+          "text": "*Source*
+Sentry",
+          "type": "mrkdwn",
+        },
+        {
+          "text": "*Count*
+4 more in the last 5 min (5 total)",
+          "type": "mrkdwn",
+        },
+      ],
+      "type": "section",
+    },
+    {
+      "text": {
+        "text": "> Cannot read properties of undefined (reading 'discount')
+> in submitCoupon(app/checkout/coupon) · production
+> Rule: New error in production checkout",
+        "type": "mrkdwn",
+      },
+      "type": "section",
+    },
+    {
+      "elements": [
+        {
+          "action_id": "open_source",
+          "text": {
+            "text": "Open in Sentry",
+            "type": "plain_text",
+          },
+          "type": "button",
+          "url": "https://sentry.io/organizations/example-org/issues/6012345678/events/5f2b8c1d9e7a4b3c8d6e0f1a2b3c4d5e/",
+        },
+      ],
+      "type": "actions",
+    },
+    {
+      "elements": [
+        {
+          "text": "Grouped by fingerprint \`sentry:6012345678\` · first seen 2026-11-10 09:27 UTC",
+          "type": "mrkdwn",
+        },
+      ],
+      "type": "context",
+    },
+  ],
+  "text": "[Error] Still firing (4 more): TypeError: Cannot read properties of undefined (reading 'discount') (web-app)",
+}
+`;
+
+exports[`Block Kit messages > new CloudWatch alarm 1`] = `
+{
+  "blocks": [
+    {
+      "text": {
+        "text": "Firing: checkout-api-5xx-rate",
+        "type": "plain_text",
+      },
+      "type": "header",
+    },
+    {
+      "fields": [
+        {
+          "text": "*Severity*
+Error",
+          "type": "mrkdwn",
+        },
+        {
+          "text": "*Service*
+checkout-api",
+          "type": "mrkdwn",
+        },
+        {
+          "text": "*Source*
+CloudWatch",
+          "type": "mrkdwn",
+        },
+        {
+          "text": "*Happened*
+2026-11-10 09:14 UTC",
+          "type": "mrkdwn",
+        },
+      ],
+      "type": "section",
+    },
+    {
+      "text": {
+        "text": "> More than 5% of checkout-api requests returned 5xx for 3 minutes.
+> Threshold Crossed: 3 out of the last 3 datapoints [41.0 (10/11/26 09:13:00), 37.0 (10/11/26 09:12:00), 29.0 (10/11/26 09:11:00)] were greater than the threshold (25.0) (minimum 3 datapoints for OK -&gt; ALARM transition).",
+        "type": "mrkdwn",
+      },
+      "type": "section",
+    },
+    {
+      "elements": [
+        {
+          "action_id": "open_source",
+          "text": {
+            "text": "Open in CloudWatch",
+            "type": "plain_text",
+          },
+          "type": "button",
+          "url": "https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1#alarmsV2:alarm/checkout-api-5xx-rate",
+        },
+      ],
+      "type": "actions",
+    },
+    {
+      "elements": [
+        {
+          "text": "Triage: reproduce it first · tell CS before the hotfix · tell them again when it's live",
+          "type": "mrkdwn",
+        },
+      ],
+      "type": "context",
+    },
+  ],
+  "text": "[Error] Firing: checkout-api-5xx-rate (checkout-api)",
+}
+`;
+
+exports[`Block Kit messages > new Sentry alert 1`] = `
+{
+  "blocks": [
+    {
+      "text": {
+        "text": "Firing: TypeError: Cannot read properties of undefined (reading 'discount')",
+        "type": "plain_text",
+      },
+      "type": "header",
+    },
+    {
+      "fields": [
+        {
+          "text": "*Severity*
+Error",
+          "type": "mrkdwn",
+        },
+        {
+          "text": "*Service*
+web-app",
+          "type": "mrkdwn",
+        },
+        {
+          "text": "*Source*
+Sentry",
+          "type": "mrkdwn",
+        },
+        {
+          "text": "*Happened*
+2026-11-10 09:20 UTC",
+          "type": "mrkdwn",
+        },
+      ],
+      "type": "section",
+    },
+    {
+      "text": {
+        "text": "> Cannot read properties of undefined (reading 'discount')
+> in submitCoupon(app/checkout/coupon) · production
+> Rule: New error in production checkout",
+        "type": "mrkdwn",
+      },
+      "type": "section",
+    },
+    {
+      "elements": [
+        {
+          "action_id": "open_source",
+          "text": {
+            "text": "Open in Sentry",
+            "type": "plain_text",
+          },
+          "type": "button",
+          "url": "https://sentry.io/organizations/example-org/issues/6012345678/events/5f2b8c1d9e7a4b3c8d6e0f1a2b3c4d5e/",
+        },
+      ],
+      "type": "actions",
+    },
+    {
+      "elements": [
+        {
+          "text": "Triage: reproduce it first · tell CS before the hotfix · tell them again when it's live",
+          "type": "mrkdwn",
+        },
+      ],
+      "type": "context",
+    },
+  ],
+  "text": "[Error] Firing: TypeError: Cannot read properties of undefined (reading 'discount') (web-app)",
+}
+`;
+
+exports[`Block Kit messages > resolved with history 1`] = `
+{
+  "blocks": [
+    {
+      "text": {
+        "text": "Resolved: checkout-api-5xx-rate",
+        "type": "plain_text",
+      },
+      "type": "header",
+    },
+    {
+      "fields": [
+        {
+          "text": "*Service*
+checkout-api",
+          "type": "mrkdwn",
+        },
+        {
+          "text": "*Source*
+CloudWatch",
+          "type": "mrkdwn",
+        },
+        {
+          "text": "*Open for*
+18 min, fired 3 times",
+          "type": "mrkdwn",
+        },
+      ],
+      "type": "section",
+    },
+    {
+      "text": {
+        "text": "> More than 5% of checkout-api requests returned 5xx for 3 minutes.
+> Threshold Crossed: 3 out of the last 3 datapoints [2.0 (10/11/26 09:31:00), 0.0 (10/11/26 09:30:00), 1.0 (10/11/26 09:29:00)] were not greater than the threshold (25.0) (minimum 3 datapoints for ALARM -&gt; OK transition).",
+        "type": "mrkdwn",
+      },
+      "type": "section",
+    },
+    {
+      "elements": [
+        {
+          "action_id": "open_source",
+          "text": {
+            "text": "Open in CloudWatch",
+            "type": "plain_text",
+          },
+          "type": "button",
+          "url": "https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1#alarmsV2:alarm/checkout-api-5xx-rate",
+        },
+      ],
+      "type": "actions",
+    },
+    {
+      "elements": [
+        {
+          "text": "If CS heard about this one, let them know the fix is live.",
+          "type": "mrkdwn",
+        },
+      ],
+      "type": "context",
+    },
+  ],
+  "text": "[Resolved] checkout-api-5xx-rate (checkout-api)",
+}
+`;
