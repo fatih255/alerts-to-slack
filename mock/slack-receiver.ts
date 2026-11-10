@@ -11,7 +11,7 @@ export interface ReceivedMessage {
  * A stand-in for a Slack incoming webhook. It stores whatever JSON it gets and serves
  * a local preview page of it. Nothing here talks to Slack.
  */
-export function createMockSlack() {
+export function createMockSlack(now: () => number = Date.now) {
   const messages: ReceivedMessage[] = [];
   let failNext: number | undefined;
 
@@ -35,7 +35,7 @@ export function createMockSlack() {
           res.writeHead(400, { "content-type": "text/plain" }).end("invalid_payload");
           return;
         }
-        messages.push({ index: messages.length + 1, receivedAt: new Date().toISOString(), payload });
+        messages.push({ index: messages.length + 1, receivedAt: new Date(now()).toISOString(), payload });
         res.writeHead(200, { "content-type": "text/plain" }).end("ok");
       });
       return;

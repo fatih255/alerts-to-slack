@@ -6,7 +6,7 @@ import { signSentryBody } from "../src/auth.js";
 const fixtureDir = fileURLToPath(new URL("../fixtures/", import.meta.url));
 export const fixture = (name: string) => readFileSync(`${fixtureDir}${name}`, "utf8");
 
-interface Target {
+export interface Target {
   serviceUrl: string;
   mockUrl: string;
   sharedSecret: string;
@@ -23,6 +23,27 @@ export async function runDemo(t: Target) {
 
   const health = (await (await fetch(`${t.serviceUrl}/health`)).json()) as { groupWindowSeconds: number };
   await fetch(`${t.mockUrl}/messages`, { method: "DELETE" });
+
+  const { sns, sentry } = senders(t);
+
+  for (let i = 0; i < 5; i++) await sentry("sentry-issue-alert.json", "event_alert");
+  await sns("sns-cloudwatch-alarm.json");
+
+  log(`waiting for the ${health.groupWindowSeconds}s grouping window to close...`);
+  await waitFor(async () => {
+    const messages = (await (await fetch(`${t.mockUrl}/messages`)).json()) as unknown[];
+    return messages.length >= 3;
+  }, health.groupWindowSeconds * 1000 * 3 + 5000);
+
+  await sns("sns-cloudwatch-ok.json");
+  await sentry("sentry-issue-resolved.json", "issue");
+
+  log(`done. preview: ${t.mockUrl}/`);
+}
+
+/** Posts fixtures to a running service the way SNS and Sentry would, with the right secret or signature. */
+export function senders(t: Target) {
+  const log = t.log ?? console.log;
 
   const sns = async (name: string) => {
     const res = await fetch(`${t.serviceUrl}/sns`, {
@@ -51,19 +72,7 @@ export async function runDemo(t: Target) {
     log(`POST /sentry  ${name.padEnd(32)} ${res.status} ${await res.text()}`);
   };
 
-  for (let i = 0; i < 5; i++) await sentry("sentry-issue-alert.json", "event_alert");
-  await sns("sns-cloudwatch-alarm.json");
-
-  log(`waiting for the ${health.groupWindowSeconds}s grouping window to close...`);
-  await waitFor(async () => {
-    const messages = (await (await fetch(`${t.mockUrl}/messages`)).json()) as unknown[];
-    return messages.length >= 3;
-  }, health.groupWindowSeconds * 1000 * 3 + 5000);
-
-  await sns("sns-cloudwatch-ok.json");
-  await sentry("sentry-issue-resolved.json", "issue");
-
-  log(`done. preview: ${t.mockUrl}/`);
+  return { sns, sentry };
 }
 
 async function waitFor(check: () => Promise<boolean>, timeoutMs: number) {

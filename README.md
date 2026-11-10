@@ -31,7 +31,7 @@ npm run demo    # in a second terminal: sends the fixtures through the service
 
 Open http://127.0.0.1:3502/ to see what the mock webhook received. `npm run dev` uses a 10 second grouping window so the demo finishes quickly; the service default is 300. Settings are listed in [`.env.example`](.env.example).
 
-`npm run screenshots` starts its own copy on ports 3503 and 3504, runs the demo and saves `docs/screenshots/*.png` with Playwright.
+`npm run screenshots` starts its own copy on ports 3503 and 3504 with the default 5 minute window and an injected clock. It replays the fixtures over about 25 simulated minutes through the real HTTP handler, then saves `docs/screenshots/*.png` with Playwright.
 
 For Lambda, `npm run build` writes `dist/`. The handler is `lambda.handler`; it takes Function URL or API Gateway HTTP API (v2) events, and scheduled EventBridge events trigger the flush. The output is ES modules, so ship it with this `package.json` or bundle it.
 
